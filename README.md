@@ -16,5 +16,5 @@ curl -X POST http://localhost:5000/test --data '{"string_to_cut": "iamyourlyftdr
 
 You can change the value of the string_to_cut key to any string value.
 
-I used the Flask Framework and created a Lyft resource that inherits from the Resource class. I overrode the post method and returned the appropriate Json. I used the interface reqparse to parse the args given and sliced up the resulting string so it only returned every third letter.
+I used the Flask Framework and created a Lyft resource that inherits from the Resource class. I overrode the post method and returned the appropriate Json. I used the interface reqparse to parse the args given and sliced up the resulting string so it only returned a string containing every third letter from the original string.
 
