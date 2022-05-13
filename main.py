@@ -7,12 +7,14 @@ api = Api(app)
 string_put_args = reqparse.RequestParser()
 string_put_args.add_argument("string_to_cut", type=str, help="String is required", required=True)
 
-
 #creating a Lyft resource, overriding the post method
 class Lyft(Resource):
 	def post(self):
 		args =  string_put_args.parse_args()
-		return_json = {"return_string": args['string_to_cut'][2::3]}
+		string_to_cut = args['string_to_cut']
+		if len(string_to_cut) < 3:
+			return {}
+		return_json = {"return_string": string_to_cut[2::3]}
 		return return_json, 201
 
 api.add_resource(Lyft, "/test")
